@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<head>
+    <title>Guestbook Challenge</title>
+</head>
+
+<body>
+    <dl>
+        <dt>checkin</dt>
+        <dd></dd>
+        <dt>checkout</dt>
+        <dd></dd>
+        <dt>totalWithTaxes</dt>
+        <dd></dd>
+        <dt>email</dt>
+        <dd></dd>
+        <dt>firstName</dt>
+        <dd></dd>
+        <dt>lastName</dt>
+        <dd></dd>
+    </dl>
+
+    <script>
+        var dd = document.querySelector("dd");
+
+        var xhr = new XMLHttpRequest();
+
+        xhr.open("GET", "https://www.amazon.com/Rise-Dragon-Illustrated-History-Targaryen/dp/1984859250/?_encoding=UTF8&pd_rd_w=8sdwG&content-id=amzn1.sym.6217d442-e765-42e6-8d47-a59919320bf4&pf_rd_p=6217d442-e765-42e6-8d47-a59919320bf4&pf_rd_r=9ZJ42YHQN02VQ059C5YZ&pd_rd_wg=YxDIy&pd_rd_r=a3c0b254-0110-4690-af3c-ac4931ec796c&ref_=pd_gw_bmx_gp_vf3i9fcn", true);
+
+        xhr.onload = function(){
+            if(xhr.readyState == 4 && xhr.status == 200)
+            {
+                //const checkin = Array.from(document.querySelectorAll('span[id^="reservation-cart-container_dates"]'));
+
+                var checkin = xhr.responseXML.querySelectorAll('#productTitle"]');
+                //document.getElementById("myspan").textContent="newtext"; 
+                
+                console.log(checkin);
+            }
+        };
+
+        xhr.onerror = function(){
+            console.error(xhr.status, xhr.statusText);
+        }
+
+        xhr.send();
+    </script>
+
+</body>
